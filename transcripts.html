@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transcripts — Suprahuman — the SH Method</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">John Madsen <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="">Overview</a><a href="analysis.html" class="">Analysis</a><a href="transcripts.html" class="on">Transcript</a><a href="videos.html" class="">Video library</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Verbatim</div><h1>Transcripts</h1>
+<p>Every word, timestamped. Search filters across all of them at once.</p></div>
+<section><input id="tsearch" class="searchbar" placeholder="Search every transcript…">
+<h2 class="sec">The SH Method pitch</h2><details class="tr"><summary>Suprahuman — the SH Method (VSL)<span class="meta">00:10:23 · 2,351 words</span></summary><div class="body"><p><span class="ts">[00:00:00]</span> I&#x27;m John Mattson, creator of Superhuman Eat, the number one online fitness coaching program in the United States. In the next five minutes, I&#x27;m going to show you how we&#x27;ve helped over 6,000 soft and out of shape former athlete businessmen slash fat off their mediocre, unathletic bodies and get back to their athletic prime. This protocol is reserved for former athletes who&#x27;ve taken their competitive drive and translated it into business success, but they&#x27;ve done so at the expense of their health and at the expense of their own self-respect. This is the top echelon of fitness coaching built specifically for former athletes who are in the second half of their life and want to look, fill, and perform like a championship athlete, not an old, fat, and wildly out of shape human. We will take you there, but there is a very specific financial requirement I have to mention right up front for the sake of not wasting your time or mine to take part in what I&#x27;m about to show you.</p><p><span class="ts">[00:00:49]</span> You must earn, at the very least, $150,000 annually. I&#x27;m not here to take people&#x27;s money who can barely afford food for their families. There are millions of other fitness programs out there for cheap and for free. We are not one of them. This will require a big investment up front, but we also remove all the risk. If we don&#x27;t deliver on our promise to get you back to your physical prime, an athletic fucking beast, we will give you all your money back. If you&#x27;re a former athlete in your 40s and 50s who talks about playing sports back in the day and your kids roll their eyes in disbelief because you can&#x27;t even make it up the bleachers to watch them play without breaking a sweat, I&#x27;m talking to you. If you need to break out your old high school yearbook and college media guide to prove to them that you are an athlete because you can&#x27;t sprint 10 yards without ripping a hamstring right now, I&#x27;m talking to you, brother.</p><p><span class="ts">[00:01:35]</span> And I&#x27;m talking specifically to you if you&#x27;ve let yourself get to the point where you avoid going to the beach, pool, or lake because you&#x27;re completely disgusted and embarrassed of your body. People used to view you as the athlete, now they just see a sloppy has-been who eats and drinks too much. I&#x27;m 40 fucking 2 at the time of this recording with a beard full of silvers and every time I go out to eat, walk through the airport, or go on vacation, I get asked where I played ball because like Jay-Z said best, &quot;check out my swag yo, I walk like a ball player. No matter where you go, you are what you are player. I&#x27;m in my fucking prime now, and so are thousands of our clients. I still look like a ball player while you, my friend, look like you could compete in the rich guy couch potato olympics for fat and out of shape ordinary joes, the furthest thing from athletic and ripped. It tears you up inside that your legacy will be your kids only knowing this version of you and never believing that you used to be a fucking savage on the field, court, diamond, or ice.</p><p><span class="ts">[00:02:27]</span> I don&#x27;t give a fuck if you played high school, college, or pro ball like I did. You can think back right now to when you had it, when you walked like a ball player, when you were in your prime. You had the mentality of a killer, and now, although you&#x27;re killing the business game, that athlete inside of you is dead, and I&#x27;m here to resurrect that man back to life. As a long shot who never played a single down of high school football, I managed to live a childhood dream and play in the national football league until I was 27 years old before I got cut and had to start the second half of my life. I entered the fitness industry as a certified strength and conditioning specialist in 2010 over 15 years ago. In 2018, after 8 years of training elite level athletes, I found myself trying on a shirt in a Travis Matthew dressing room, and I&#x27;ll never forget the feeling of disgust I felt when I looked at my body in the mirror and saw a wildly mediocre man.</p><p><span class="ts">[00:03:16]</span> At that point, I had trained and coached thousands of high school and collegiate athletes and dozens of NFL athletes. I knew strength and conditioning and nutrition inside and out, frontwards and backwards after studying it, for 8 years and there I was looking at a man with fucking love handles and eyes that lost the competitive fire that made me me. Something snapped inside me that day. I walked out of the dressing room and found my wife and her 9 month old daughter in her stroller and I made a promise to myself that I&#x27;d find that fucking fire that I used to have and I never let it go again. Over the next year, I got in savage shape. I looked better at 37 than I looked in my 3 year NFL career. In fact, I looked more like a professional athlete than I did when I was a professional athlete. For the first time in a long time, I felt alive again. My competitive spirit returned with a fucking vengeance.</p><p><span class="ts">[00:04:02]</span> I launched an online fitness coaching company to help other men do the same and now we&#x27;re the #1 fitness coaching company in the world with over 6000 men transformed, 100 full-time employees working for the company and dozens and dozens and dozens of millions of dollars earned. I&#x27;m healthier, more ripped and richer now at 42 than I was during my 3 year NFL career and I&#x27;m here to tell you that you can do the same. I don&#x27;t give a fuck how good you are at business and how much money you have in your bank if you roll up to the valet in your Range Rover and look fat, old and washed up when you get out. This is the generational wealth you&#x27;re working so hard for if you&#x27;re giving up your #1 asset, your health to go get it. If running up and down the basketball court twice with your kids have you huffing and puffing like a fatass big bad wolf or you wear t-shirts at the pool at the ritz to cover up your man boobs while you flash your fucking Rolex, now&#x27;s your chance to get back to the athletic savage you used to be and the one you were meant to be because no amount of money can buy respect and admiration like an athletic as fuck body can.</p><p><span class="ts">[00:05:03]</span> You know it, I know it, and you&#x27;ve seen how people react to the very few men you know who have the financial success and look like an athletic god at the same time. These guys are the guys that walk by and make your wife secretly wish you could stop eating like a slob and drinking like a whale. And these are the guys whose kids secretly bragged to the other kids at school that their dad would kick all their friend&#x27;s dad&#x27;s asses. You have that guy inside of you right now and I&#x27;m going to tell you how we&#x27;re going to get him back. I put together a championship team with over 50 full-time elite level world class coaches whose only objective is to help you get back to your athletic prime. Our coaches have the highest level of education and experience when it comes to fitness and nutrition while our top level programs include access to one of the top concierge medical teams in the country who will dial in your blood work and biochemistry as if you were a professional athlete.</p><p><span class="ts">[00:05:51]</span> In the NFL I had at my fingertips a team full of experts and doctors, nutrition team and strength and conditioning coaches constantly surrounding me and holding me accountable every step of the way and I&#x27;ve recreated that for you here. I have put together a world-class team of experts the best of the best in fitness, nutrition and medicine to have you looking and feeling like an elite athlete for the first time in a long time and for some of you for the first time ever. Take one of my clients Grant, former athlete, multi-seven figure business owner, father of two. He said he was laying on the couch one day after coming home from work and he had his shirt off, one of his boys about seven at the time grabbed his stomach and said daddy why is your tummy so jiggly and started laughing. In an instant Grant realized that his seven figures didn&#x27;t mean shit to his boys, they were watching his every move.</p><p><span class="ts">[00:06:36]</span> A day later Grant saw an ad just like you did, completely skeptical and just like you he watched a video just like this. At the end of the video he said he booked a call because he couldn&#x27;t stand the thought of his boys seeing a soft ass man for a dad for one more day. Now Grant is in rare company in a vastly mediocre world. He belongs to the top 1% of men who are rich and athletic and ripped at the same time. Before anything changes you have to decide, are you okay sleepwalking through the rest of your life like an average, unimpressive, ordinary blend in or do you want to relight that motherfucking fire, win back your self respect and walk with an athletic swagger that only athletes have and other people admire. I&#x27;m not here for you to decide that you just want to lose 20 or 30 pounds and I&#x27;m not here for you to decide that you just want to get a little bit healthier.</p><p><span class="ts">[00:07:22]</span> If that&#x27;s all you want go somewhere else, there&#x27;s a million other bullshit programs you can do to lose a little bit of weight. In fact, just go take a zimpic like every other lazy ass who wants quick and easy and really fuck up your metabolism. I need the decision in the center of your heart to commit to excellence for the rest of your life. A commitment to winning the health game at an elite level that will completely blow the minds of every person you know, including, most importantly, your wife and kids. Even if you&#x27;re still a bit skeptical about whether or not you have what it takes, I&#x27;m offering you a hand right now like your old teammates used to when they reached out and picked you up off the field in court. I have the answer. I have the formula. I have the championship team behind me and I have the belief that you need to borrow until it&#x27;s yours again. I will turn you into a fucking champion again, regardless of your age, genetics and excuses.</p><p><span class="ts">[00:08:10]</span> But you need to decide. Are you going to continue down the already unsuccessful path of trying to do this shit on your own? Are you going to continue to put this off until tomorrow, two weeks, two months, two years, and for some of you two decades? Or are you going to take the red pill like more than 6,000 other men just like you have already done? If you partake, you will be athletic, ripped and in better shape than you&#x27;ve ever been in. There&#x27;s zero chance that the superhuman method doesn&#x27;t work for you and I&#x27;m willing to put my money where my mouth is. All you have to do is make the decision, commit to the process and be willing to get coached hard. If you&#x27;re looking for easy, a quick fix or a cheap basic bitch workout plan, this isn&#x27;t it. This is for the men who are willing to get after it and prove to themselves and their kids that they aren&#x27;t afraid to do the work required to live like an elite fucking human.</p><p><span class="ts">[00:08:59]</span> A superhuman. I remember being coached by the legendary Urban Meyer when I was at Utah. As hard as he was to play for, he brought out the very best in me and we were winners. You athletes already know how powerful having the right coach in your corner is. Even the best of the best understood this with Michael and Kobe, both hiring Tim Grover to take them to the next level mentally. Doing it on your own is a fool&#x27;s game and it rarely ever works. And if it worked for you, you&#x27;d already look like an athletic god, but you&#x27;re still here. Having the right coach is like having a cheat code. The red pill. You transform into an athletic savage in your prime and never go back. A completely optimized human with the energy, vitality and drive of a 25 year old and a ripped six pack as a bonus. The blue pill, you continue to walk around like a sloppy mediocre Joe who used to be a good athlete, a bland and average blend in fat and wildly out of shape, weak and powerless.</p><p><span class="ts">[00:09:51]</span> Just like almost all the other men, you know, if you want to be in your prime again, click the link right below this video and fill out our three minute application because it&#x27;s imperative that we filter out the people who are not a fit to protect the integrity of the program. As I said in the beginning of the video, if you make less than 150 grand a year, this is not for you. We built a robust, exclusive network of high-performance individuals on a mission for elite health and fitness. Everyone is vetted through the application and scheduled consultation. If you complete the application and you qualify for the next step, show up to your consultation ready to go. Welcome to Superhuman.</p></div></details></section>
+<footer>Captured 2 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/Swipes/SUPRAHUMAN_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>

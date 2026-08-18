@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — Suprahuman — the SH Method</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">John Madsen <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="on">Overview</a><a href="analysis.html" class="">Analysis</a><a href="transcripts.html" class="">Transcript</a><a href="videos.html" class="">Video library</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Competitor swipe · captured 2 August 2026</div>
+<h1>Suprahuman — the SH Method</h1><p>Online fitness coaching aimed at former athletes. The pitch is ordinary; the <b>post-booking page</b> does something almost nobody does &mdash; it warns the lead that an unknown number is about to text them.</p></div>
+<section><div class="grid g4"><div class="stat"><div class="n">John Madsen</div><div class="l">Presenter</div></div><div class="stat"><div class="n">#1 in the US</div><div class="l">Claim</div></div><div class="stat"><div class="n">6,000+</div><div class="l">Clients claimed</div></div><div class="stat"><div class="n">Former athletes</div><div class="l">ICP</div></div><div class="stat"><div class="n">~5 min</div><div class="l">Pitch length</div></div><div class="stat"><div class="n">2,351</div><div class="l">Words</div></div><div class="stat"><div class="n">$150k/yr, stated in the VSL</div><div class="l">Income gate</div></div><div class="stat"><div class="n">yes</div><div class="l">Registered</div></div></div></section>
+<section><h2 class="sec">The offer</h2><div class="tablewrap"><table><tr><th>Product</th><td>Suprahuman / SH Method &mdash; online fitness coaching</td></tr><tr><th>Positioning</th><td>&ldquo;the number one online fitness coaching program in the United States&rdquo;</td></tr><tr><th>ICP</th><td>&ldquo;soft and out of shape former athletes&rdquo; &mdash; a specific identity, not a demographic</td></tr><tr><th>Scale claimed</th><td>6,000+ people helped</td></tr><tr><th>Pitch length</th><td>Opens by promising the whole thing in <b>five minutes</b></td></tr><tr><th>Path</th><td>Long-form page &rarr; booked consultation &rarr; pre-call video + SMS confirm</td></tr><tr><th>Price</th><td><b>Not observed.</b> No figure anywhere in the captured funnel</td></tr></table></div></section>
+<section><h2 class="sec">What matters</h2><div class="grid g2"><div class="card"><h3>They warn you about the unknown number &amp;mdash; steal this</h3><p>The post-booking page says plainly: <i>if a text arrives from an unknown number in the next hour, that is us, please reply.</i> It converts a message that would normally be ignored into an expected one, and the reply itself is a micro-commitment that confirms the lead is reachable. <b>We text booked leads from numbers they do not recognise and say nothing in advance.</b> This is a one-line change to our confirmation page.</p></div><div class="card"><h3>The ICP is an identity, not a demographic</h3><p>&ldquo;Soft and out of shape <i>former athletes</i>&rdquo; describes who someone <i>used to be</i>. It selects on self-image rather than age or gender, and it carries the promise inside it &mdash; you were this once, you can be again. Sharper than anything demographic.</p></div><div class="card"><h3>Five minutes, stated up front</h3><p>The video opens by committing to a five-minute runtime. Naming the cost of attention before asking for it is the opposite of the forced-consumption players elsewhere in this file, and it is a bet that respect converts better than capture.</p></div><div class="card"><h3>Confirmation is a sequence, not a page</h3><p>Booking is followed by a pre-call video, a checklist and an SMS confirmation. The same pattern as Her Closing Academy and Warrior Babe: <b>three unrelated competitors all put work between booking and attending.</b></p></div></div></section>
+<section><h2 class="sec">Funnel path</h2><div class="tablewrap"><table>
+<tr><th>#</th><th>Step</th><th>URL</th><th>Note</th></tr><tr><td><b>1</b></td><td>Landing / pitch</td><td><code>suprahumanceo.com/sh-method61258820</code></td><td>Long-form page with the SH Method video. Registered here.</td></tr><tr><td><b>2</b></td><td>Booked</td><td><code>suprahumanceo.com/appointment-booked</code></td><td><span class="tag good">the mechanic</span> Pre-call video, checklist, and the &ldquo;an unknown number will text you&rdquo; warning.</td></tr></table></div></section>
+<footer>Captured 2 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/Swipes/SUPRAHUMAN_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>

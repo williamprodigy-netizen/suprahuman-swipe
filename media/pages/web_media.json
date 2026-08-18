@@ -1,0 +1,56 @@
+[
+ {
+  "stem": "01_landing",
+  "full": "full/web_01_landing.jpg",
+  "thumb": "thumb/web_01_landing.jpg",
+  "w": 1400,
+  "h": 1333,
+  "tw": 420,
+  "th": 400
+ },
+ {
+  "stem": "01_suprahumanceo_com_appointment_booked",
+  "full": "full/web_01_suprahumanceo_com_appointment_booked.jpg",
+  "thumb": "thumb/web_01_suprahumanceo_com_appointment_booked.jpg",
+  "w": 1400,
+  "h": 33500,
+  "tw": 420,
+  "th": 10050
+ },
+ {
+  "stem": "02_after_vsl",
+  "full": "full/web_02_after_vsl.jpg",
+  "thumb": "thumb/web_02_after_vsl.jpg",
+  "w": 1400,
+  "h": 1333,
+  "tw": 420,
+  "th": 400
+ },
+ {
+  "stem": "03_form",
+  "full": "full/web_03_form.jpg",
+  "thumb": "thumb/web_03_form.jpg",
+  "w": 1400,
+  "h": 1434,
+  "tw": 420,
+  "th": 430
+ },
+ {
+  "stem": "04_step1_filled",
+  "full": "full/web_04_step1_filled.jpg",
+  "thumb": "thumb/web_04_step1_filled.jpg",
+  "w": 1400,
+  "h": 1434,
+  "tw": 420,
+  "th": 430
+ },
+ {
+  "stem": "05_after_submit",
+  "full": "full/web_05_after_submit.jpg",
+  "thumb": "thumb/web_05_after_submit.jpg",
+  "w": 1400,
+  "h": 1327,
+  "tw": 420,
+  "th": 398
+ }
+]
